@@ -34,8 +34,8 @@ func DoOne(src, dst string) error {
 }
 
 func GetDestName(src string) string {
-	//dstPreFix := "registry.cn-hangzhou.aliyuncs.com/benz/ff"
-	dstPreFix := "hub.hitry.io/ff/bbb"
+	dstPreFix := "registry.cn-hangzhou.aliyuncs.com/benz/ff"
+	//dstPreFix := "hub.hitry.io/ff/bbb"
 	dstHou := src[strings.LastIndex(src, "/")+1:]
 	dstHou = strings.Replace(dstHou, ":", "_", -1)
 	dstName := dstPreFix + ":" + dstHou

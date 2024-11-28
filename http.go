@@ -108,6 +108,11 @@ func (h *HttpServer) Run() {
 		http.ServeFile(c.Writer, c.Request, indexPath)
 	})
 
+	h.Router.GET("/favicon.ico", func(c *gin.Context) {
+		indexPath := filepath.Join("www", "favicon.ico")
+		http.ServeFile(c.Writer, c.Request, indexPath)
+	})
+
 	// 设置静态文件服务，www目录作为根目录
 	h.Router.Static("/static", "./www")
 
