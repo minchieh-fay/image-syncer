@@ -80,6 +80,7 @@ func (h *HttpServer) DoTask() {
 			fmt.Println("do task error:", err)
 			ii.Status = "failed"
 		}
+		ii.Date = time.Now().Format("2006-01-02 15:04:05")
 		h.mtxList.Lock()
 		// 把ii从Waitlist中移除，并添加到Finishlist中
 		h.imagelist.Waitlist = h.imagelist.Waitlist[1:]
