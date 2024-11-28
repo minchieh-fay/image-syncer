@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/utils"
+	"image-syncer/pkg/utils"
 )
 
 type ImageList map[string][]string

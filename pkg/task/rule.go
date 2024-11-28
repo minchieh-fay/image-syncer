@@ -3,10 +3,10 @@ package task
 import (
 	"fmt"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/utils/types"
+	"image-syncer/pkg/utils/types"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/sync"
-	"github.com/AliyunContainerService/image-syncer/pkg/utils"
+	"image-syncer/pkg/sync"
+	"image-syncer/pkg/utils"
 )
 
 // RuleTask analyze an image config rule ("xxx:xxx") and generates URLTask(s).

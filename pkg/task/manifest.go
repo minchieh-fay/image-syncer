@@ -3,10 +3,12 @@ package task
 import (
 	"fmt"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/utils"
+	"image-syncer/pkg/utils"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/concurrent"
-	"github.com/AliyunContainerService/image-syncer/pkg/sync"
+	"image-syncer/pkg/concurrent"
+
+	"image-syncer/pkg/sync"
+
 	"github.com/opencontainers/go-digest"
 )
 

@@ -3,7 +3,7 @@ package concurrent
 import (
 	"sync"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/utils/types"
+	"image-syncer/pkg/utils/types"
 )
 
 type ImageList struct {

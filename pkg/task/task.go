@@ -1,7 +1,7 @@
 package task
 
 import (
-	"github.com/AliyunContainerService/image-syncer/pkg/sync"
+	"image-syncer/pkg/sync"
 )
 
 type Type string

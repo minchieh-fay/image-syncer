@@ -8,12 +8,13 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/utils/auth"
+	"image-syncer/pkg/utils/auth"
 
 	"github.com/containers/image/v5/manifest"
 	specsv1 "github.com/opencontainers/image-spec/specs-go/v1"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/utils"
+	"image-syncer/pkg/utils"
+
 	"github.com/containers/image/v5/docker"
 	"github.com/containers/image/v5/types"
 	"github.com/opencontainers/go-digest"

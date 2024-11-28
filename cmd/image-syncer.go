@@ -4,9 +4,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/client"
-	"github.com/AliyunContainerService/image-syncer/pkg/utils"
-
 	"github.com/spf13/cobra"
 )
 
@@ -32,14 +29,15 @@ var RootCmd = &cobra.Command{
 		cmd.SilenceErrors = true
 
 		// work starts here
-		client, err := client.NewSyncClient(configFile, authFile, imagesFile, logPath, successImagesFile, outputImagesFormat,
-			procNum, retries, utils.RemoveEmptyItems(osFilterList), utils.RemoveEmptyItems(archFilterList), forceUpdate)
-		if err != nil {
-			return fmt.Errorf("init sync client error: %v", err)
-		}
+		// client, err := client.NewSyncClient(configFile, authFile, imagesFile, logPath, successImagesFile, outputImagesFormat,
+		// 	procNum, retries, utils.RemoveEmptyItems(osFilterList), utils.RemoveEmptyItems(archFilterList), forceUpdate)
+		// if err != nil {
+		// 	return fmt.Errorf("init sync client error: %v", err)
+		// }
 
-		cmd.SilenceUsage = true
-		return client.Run()
+		// cmd.SilenceUsage = true
+		// return client.Run()
+		return nil
 	},
 }
 

@@ -11,9 +11,9 @@ import (
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
 
-	"github.com/AliyunContainerService/image-syncer/pkg/concurrent"
-	"github.com/AliyunContainerService/image-syncer/pkg/task"
-	"github.com/AliyunContainerService/image-syncer/pkg/utils/types"
+	"image-syncer/pkg/concurrent"
+	"image-syncer/pkg/task"
+	"image-syncer/pkg/utils/types"
 )
 
 // Client describes a synchronization client
@@ -38,12 +38,12 @@ type Client struct {
 }
 
 // NewSyncClient creates a synchronization client
-func NewSyncClient(configFile, authFile, imagesFile, logFile, successImagesFile, outputImagesFormat string,
+func NewSyncClient(configFile, authFile string, imagelist map[string]string, logFile, successImagesFile, outputImagesFormat string,
 	routineNum, retries int, osFilterList, archFilterList []string, forceUpdate bool) (*Client, error) {
 
 	logger := NewFileLogger(logFile)
 
-	config, err := NewSyncConfig(configFile, authFile, imagesFile, osFilterList, archFilterList, logger)
+	config, err := NewSyncConfig(configFile, authFile, imagelist, osFilterList, archFilterList, logger)
 	if err != nil {
 		return nil, fmt.Errorf("generate config error: %v", err)
 	}
@@ -76,6 +76,7 @@ func (c *Client) Run() error {
 	if err != nil {
 		return fmt.Errorf("failed to get image list: %v", err)
 	}
+	fmt.Println("")
 
 	for source, destList := range imageList {
 		for _, dest := range destList {
@@ -87,6 +88,7 @@ func (c *Client) Run() error {
 					if !exist {
 						c.logger.Infof("Auth information not found for %v, access will be anonymous.", repository)
 					}
+					auth.Insecure = true
 					return auth
 				}, c.forceUpdate)
 			if err != nil {
