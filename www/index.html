@@ -135,7 +135,7 @@
       mounted() {
         // 页面加载时获取布尔状态
         this.flashlist();
-        this.intervalId = setInterval(this.checkAndFlash, 3000);
+        this.intervalId = setInterval(this.checkAndFlash, 10000);
       },
       beforeDestroy() {
         // 组件销毁前清除定时器
